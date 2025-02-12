@@ -1,5 +1,6 @@
 int add(String numbers) {
   if (numbers.isEmpty) return 0;
+
   if (!numbers.contains(",") && !numbers.contains("\n")) {
     return int.parse(numbers);
   }
@@ -14,7 +15,6 @@ int add(String numbers) {
   
   final parts = numbers.split(RegExp(delimiterPattern));
   final ints = parts.map(int.parse).toList();
-  
 
   final negatives = ints.where((n) => n < 0).toList();
   if (negatives.isNotEmpty) {
