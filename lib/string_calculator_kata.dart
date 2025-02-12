@@ -4,6 +4,6 @@ int add(String numbers) {
     return int.parse(numbers);
   }
   
-  final parts = numbers.split(RegExp(r","));
+  final parts = numbers.split(RegExp(r",|\n"));
   return parts.map(int.parse).reduce((a, b) => a + b);
 }
