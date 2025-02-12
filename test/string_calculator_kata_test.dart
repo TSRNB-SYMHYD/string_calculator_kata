@@ -11,4 +11,7 @@ void main() {
   test('Two/multiple numbers, comma-separated, are summed', () {
     expect(add("1,5"), equals(6));
   });
+  test('Handles new lines as delimiters', () {
+    expect(add("1\n2,3"), equals(6));
+  });
 }
