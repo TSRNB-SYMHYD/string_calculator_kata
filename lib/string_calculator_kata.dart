@@ -1,4 +1,9 @@
 int add(String numbers) {
   if (numbers.isEmpty) return 0;
-  return int.parse(numbers);
+  if (!numbers.contains(",") && !numbers.contains("\n")) {
+    return int.parse(numbers);
+  }
+  
+  final parts = numbers.split(RegExp(r","));
+  return parts.map(int.parse).reduce((a, b) => a + b);
 }
