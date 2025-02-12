@@ -1,3 +1,7 @@
 import 'package:test/test.dart';
 
-void main() {}
+void main() {
+  test('Empty string returns 0', () {
+    expect(add(""), equals(0));
+  });
+}
