@@ -13,5 +13,13 @@ int add(String numbers) {
   }
   
   final parts = numbers.split(RegExp(delimiterPattern));
-  return parts.map(int.parse).reduce((a, b) => a + b);
+  final ints = parts.map(int.parse).toList();
+  
+
+  final negatives = ints.where((n) => n < 0).toList();
+  if (negatives.isNotEmpty) {
+    throw Exception("negative numbers not allowed ${negatives.join(",")}");
+  }
+  
+  return ints.fold(0, (a, b) => a + b);
 }
