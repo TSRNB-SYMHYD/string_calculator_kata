@@ -8,5 +8,7 @@ void main() {
   test('Single number returns its value', () {
     expect(add("4"), equals(4));
   });
-
+  test('Two/multiple numbers, comma-separated, are summed', () {
+    expect(add("1,5"), equals(6));
+  });
 }
