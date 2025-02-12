@@ -17,4 +17,21 @@ void main() {
   test('Supports custom delimiter', () {
     expect(add("//;\n1;2"), equals(3));
   });
+
+  // throws the following error:
+    /*
+    Expected: throws satisfies function
+    Actual: <Closure: () => int>
+    Which: returned <-2>
+
+  package:matcher                             expect
+  test\string_calculator_kata_test.dart 21:5  main.<fn> */
+  test('Negative numbers throw an exception with message listing negatives', () {
+    expect(
+      () => add("1,-2,3,-4"),
+      throwsA(predicate((e) =>
+        e is Exception &&
+        e.toString() == "Exception: negative numbers not allowed -2,-4"))
+    );
+  });
 }
