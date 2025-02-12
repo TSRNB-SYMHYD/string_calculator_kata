@@ -14,4 +14,7 @@ void main() {
   test('Handles new lines as delimiters', () {
     expect(add("1\n2,3"), equals(6));
   });
+  test('Supports custom delimiter', () {
+    expect(add("//;\n1;2"), equals(3));
+  });
 }
